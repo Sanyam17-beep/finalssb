@@ -45,7 +45,7 @@ function Blogs() {
         const data = await response.json();
         const values = data.values || [];
         setSheetData(values);
-        setData(values.slice(1)); // Skip the first row (headers)
+        setData(values.slice(1).reverse()); // Skip the first row (headers)
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -83,10 +83,21 @@ function Blogs() {
       <div className="blogs-carousal">
         <div className="blogs-carousal-container">
         <Swiper
-        slidesPerView={3}
-        centeredSlides={true}
-        initialSlide={1}
         spaceBetween={30}
+       
+        breakpoints={{
+          // When screen width is at least 640px
+          780: {
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            // loop:true,
+          },
+          1100:{
+            slidesPerView:3,
+            centeredSlides:true,
+            initialSlide:1,
+          }
+        }}
         navigation={{
           nextEl: ".next",
     

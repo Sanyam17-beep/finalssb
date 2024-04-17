@@ -27,6 +27,7 @@ export default function Testimonials() {
         // centeredSlides={true}
           grabCursor={true}
           loop={true}
+          // centeredSlides={true}
           pagination={{
             clickable: true,
           }}
@@ -34,11 +35,13 @@ export default function Testimonials() {
             340: {
               slidesPerView: 1,
               spaceBetween: 20,
+              centeredSlides:true
             },
           
            800: {
               slidesPerView: 2,
               spaceBetween: 30,
+              // centeredSlides:true
             },
             1024: {
               slidesPerView: 3,
@@ -48,7 +51,7 @@ export default function Testimonials() {
           modules={[ Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>
+          <SwiperSlide >
             <div className="tempbox">
               <div className="img-container">
                 <img src={ARYA} width={55} height={55} alt="" />

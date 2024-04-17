@@ -8,12 +8,12 @@
   justify-content: center;
   align-items: center;
   padding-right: 20px;
-  background-color: rgb(250, 246, 241);
+  /* background-color: rgb(250, 246, 241); */
 }
 .Enroll-heading{
   font-family: Yantramanav;
     font-size: 40px;
-  background-color: rgb(250, 246, 241);
+  /* background-color: rgb(250, 246, 241); */
 
 }
 .fieldset{
@@ -22,7 +22,7 @@
   flex-wrap: wrap;
   gap: 20px;
   align-items: center;
-  background-color: rgb(250, 246, 241);
+  /* background-color: rgb(250, 246, 241); */
 }
 .form-row-container{
   display: flex;
@@ -52,7 +52,7 @@ legend{
     font-size: 14px;
     line-height: 1.42857143;
     color: #555;
-    background-color: rgb(250, 246, 241);
+    /* background-color: rgb(250, 246, 241); */
     background-image: none;
     border: 1px solid #ccc;
 }
@@ -80,7 +80,7 @@ legend{
   }
 }
 @media only screen and (max-width: 800px) {
-  .form-container{
+  /* .form-container{
     width: 90vw !important;
   }
   .Enroll-page{
@@ -98,8 +98,18 @@ legend{
     color: #3d9970 !important;
   } */
 
-  
   .hamburger1{
+    display: -ms-grid !important;
+    display: grid !important;
+    margin-right: 30px !important;
+  }
+  .menu{
+    display: none !important;
+  }
+  .hide{
+    display: none !important;
+  }
+  /* .hamburger1{
     display: -ms-grid !important;
     display: grid !important;
     margin-right: 30px !important;
@@ -219,7 +229,7 @@ legend{
   }
   .hero{
       /* height: 90vh !important; */
-      display: flex;
+      /* display: flex;
       flex-direction: column-reverse;
       padding-top: 82.5px !important;
   }
@@ -237,5 +247,97 @@ legend{
 }
 .Enroll-heading::after{
   font-size: 15px ;
+} */
+.Hero-header-content{
+  width: fit-content !important;
+}
+.rect-container{
+  display: none;
+}
+.About-content-container{
+ gap:25px !important;
+ height:90%;
+ flex-direction: column-reverse;
+}
+.Feature-section{
+flex-direction: column;
+}
+.testimonial-container{
+  height: auto !important;
+  padding: 20px;
+  gap: 30px;
+}
+.mySwiper{
+  padding-top: 0px !important;
+  padding-left: 0px !important;
+}
+.yellow-line{
+  display: none !important;
+}
+.background-contact{
+  display: none !important;
+}
+.Contact-container{
+  padding-left: 0px !important;
+  width: 100%;
+}
+.mobile-contact{
+width: 100%;
+}
+.Contact-form{
+  width: 100%;
+}
+.blogs-container-header {
+  height: auto !important;
+}
+.blogs-container-header-title{
+  width: 100% !important;
+}
+.blogs-container-header-content{
+  width: 100% !important;
+}
+.blogs-carousal-container{
+  width: 90vw !important;
+}
+.svg-arrow{
+  bottom:40px !important;
+}
+.Hero-header-content {
+  font-size: 40px !important;
+  line-height: 50px !important;
+}
+.blogs-container{
+  height: auto !important;
+  flex-direction: column;
+  padding-left: 20px !important;
+  padding-top: 20px !important;
+  gap: 30px;
+  padding: 20px;
+}
+.about-right{
+  width: 90% !important;
+  height: auto !important;
+}
+.about-left{
+  width: 90% !important;
+}
+.form-container{
+  width: 100% !important;
+}
+.logo-container{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.Footer{
+  padding-left: 20px !important;
+}
+.testimonial-header {
+  padding-left: 0px !important;
+  line-height: 65px !important;
+}
+.tempbox{
+width: fit-content !important;
 }
 }

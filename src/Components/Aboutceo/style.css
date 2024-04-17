@@ -40,8 +40,8 @@
 }
 .About-content-container{
   display: flex;
-  justify-content: center;
-  gap: 200px;
+  justify-content: space-evenly;
+ width: 100%;
   align-items: center;
 }
 .about-left{

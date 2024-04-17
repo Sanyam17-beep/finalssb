@@ -36,11 +36,12 @@ color: #FFCB11;
     text-align: center;
     font-size: 18px;
     background: #fff;
-  
+  background-color: #2A5B1E;
     /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
+   
   }
   
   /* .swiper-slide img {

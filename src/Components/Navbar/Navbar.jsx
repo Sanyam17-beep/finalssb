@@ -232,10 +232,10 @@ function Navbar({setenroll,enroll}) {
     <div className="link1"
           style={
             Active == "Home1"
-              ? { cursor: "pointer", fontWeight: "700", backgroundColor: "darkolivegreen",
+              ? { cursor: "pointer", fontWeight: "700", backgroundColor: "#FFCB11",paddingRight:"50px",
               color: "white",
               transition: "all 0.3s ease" }
-              : { cursor: "pointer" }
+              : { cursor: "pointer",paddingRight:"50px", }
           }
           onClick={() => {
             setenroll(false);
@@ -248,10 +248,10 @@ function Navbar({setenroll,enroll}) {
         <div className="link1"
           style={
             Active == "About us"
-              ? { cursor: "pointer", fontWeight: "700", backgroundColor: "darkolivegreen",
+              ? { cursor: "pointer", fontWeight: "700", backgroundColor: "#FFCB11",paddingRight:"50px",
               color: "white",
               transition: "all 0.3s ease" }
-              : { cursor: "pointer" }
+              : { cursor: "pointer",paddingRight:"50px", }
           }
           onClick={() => { setenroll(false);handleScrollTo('about');SetActive("About us")}}
         >
@@ -264,10 +264,10 @@ function Navbar({setenroll,enroll}) {
         <div className="link1"
           style={
            Active==="Registration"&& enroll===true
-              ? { cursor: "pointer", fontWeight: "700", backgroundColor: "darkolivegreen",
+              ? { cursor: "pointer", fontWeight: "700", backgroundColor: "#FFCB11",paddingRight:"50px",
               color: "white",
               transition: "all 0.3s ease" }
-              : { cursor: "pointer" }
+              : { cursor: "pointer",paddingRight:"50px", }
           }
           onClick={() => {
             setenroll(true);
@@ -281,10 +281,10 @@ function Navbar({setenroll,enroll}) {
         <div  className="link1"
           style={
             Active == "Eligibilty"
-              ? { cursor: "pointer", fontWeight: "700",position:"relative", backgroundColor: "darkolivegreen",
+              ? { cursor: "pointer", fontWeight: "700",position:"relative", backgroundColor: "#FFCB11",paddingRight:"50px",
               color: "white",
               transition: "all 0.3s ease" }
-              : { cursor: "pointer" ,position:"relative"}
+              : { cursor: "pointer" ,position:"relative",paddingRight:"50px",}
           }
           onClick={() => {SetActive("Eligibilty")}}
         
@@ -293,17 +293,17 @@ function Navbar({setenroll,enroll}) {
           
         </div>
         {/* <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",gap:"20px"}}> */}
-        <a className="mobile-drop" style={ Active == "Eligibilty"?{}:{display:"none"}} href="https://164.100.158.23/how-to-join.htm" target="_blank" rel="noopener noreferrer">Indian Army</a>
-            <a className="mobile-drop" style={ Active == "Eligibilty"?{}:{display:"none"}} href="https://www.joinindiannavy.gov.in/en/entry/entry/eligibilityform" target="_blank" rel="noopener noreferrer">Indian Navy</a>
-            <a className="mobile-drop" style={ Active == "Eligibilty"?{}:{display:"none"}} href="https://afcat.cdac.in/AFCAT/CareerAsPerQualification.html" target="_blank" rel="noopener noreferrer">Indian Air force</a>
+        <a className="mobile-drop" style={ Active == "Eligibilty"?{paddingRight:"50px",}:{display:"none"}} href="https://164.100.158.23/how-to-join.htm" target="_blank" rel="noopener noreferrer">Indian Army</a>
+            <a className="mobile-drop" style={ Active == "Eligibilty"?{paddingRight:"50px",}:{display:"none"}} href="https://www.joinindiannavy.gov.in/en/entry/entry/eligibilityform" target="_blank" rel="noopener noreferrer">Indian Navy</a>
+            <a className="mobile-drop" style={ Active == "Eligibilty"?{paddingRight:"50px",}:{display:"none"}} href="https://afcat.cdac.in/AFCAT/CareerAsPerQualification.html" target="_blank" rel="noopener noreferrer">Indian Air force</a>
             {/* </div> */}
         <div className="link1"
           style={
             Active == "Contact us"
-              ?  { cursor: "pointer", fontWeight: "700", backgroundColor: "darkolivegreen",
+              ?  { cursor: "pointer", fontWeight: "700", backgroundColor: "#FFCB11",paddingRight:"50px",
               color: "white",
               transition: "all 0.3s ease" }
-              : { cursor: "pointer" }
+              : { cursor: "pointer",paddingRight:"50px", }
           }
           onClick={() => { setenroll(false);handleScrollTo('contact');SetActive("Contact us")}}
         >
