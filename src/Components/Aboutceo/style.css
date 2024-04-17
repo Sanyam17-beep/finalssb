@@ -49,7 +49,6 @@
 top: 913px;
 left: 120px;
 gap: 0px;
-opacity: 0px;
 display: flex;
 flex-direction: column;
 gap: 20px;
@@ -92,7 +91,6 @@ height: 377px;
 top: 918px;
 left: 736px;
 gap: 0px;
-opacity: 0px;
 }
 .test{
     opacity: 0;
