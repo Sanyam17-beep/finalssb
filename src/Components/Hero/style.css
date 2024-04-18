@@ -258,7 +258,7 @@ align-items: center;
   .background>img{
     width: 100%; /* Adjust as needed */
     height: 100%;
-    object-fit: conver;
+    object-fit: cover;
   }
   .Hero-header {
     position: absolute;

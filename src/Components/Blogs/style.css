@@ -1,13 +1,12 @@
 .blogs-container{
     
     background: #2A5B1E;
-    
-    height: 528px;
+    /* height: 90vh; */
     display: flex;
-   justify-content:space-between ;
-   align-items: center;
-   padding-left: 80px;
-   padding-top: 40px;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding-left: 80px;
+    padding-top: 90px;
 }
 .blogs-container-header{
     display: flex;

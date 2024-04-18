@@ -6,9 +6,9 @@
   
   /* width: 100%; */
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-direction: column;
-
+  padding-top: 90px;
   height: 90vh;
 }
 .testimonial-carousal{
