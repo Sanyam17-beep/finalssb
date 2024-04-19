@@ -286,6 +286,15 @@ flex-direction: column;
   padding-left: 0px !important;
   width: 100%;
 }
+.Hero-header-content{
+  margin-left: 0px !important;
+}
+.logo{
+  padding-left: 20px !important;
+}
+.en{
+  margin-left: 20px !important;
+}
 .mobile-contact{
 width: 100%;
 }

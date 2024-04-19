@@ -129,7 +129,7 @@ function Navbar({setenroll,enroll}) {
     <div className="Nav">
       <div
         className="logo"
-        style={{ cursor: "pointer",paddingLeft:"30px" }}
+        style={{ cursor: "pointer",paddingLeft:"80px" }}
         onClick={()=>setenroll(false)}
       >
       <img src={svglogo} alt="" width={120} />
