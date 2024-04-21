@@ -425,9 +425,11 @@ width: 100%;
 .about-right{
   width: 90% !important;
   height: auto !important;
+  align-self: flex-start;
 }
 .about-left{
   width: 90% !important;
+  align-self: flex-start;
 }
 .form-container{
   width: 100% !important;
