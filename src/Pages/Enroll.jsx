@@ -174,7 +174,7 @@ function Enroll() {
     //   rzpay.open();
     // },
     // [Razorpay]
-    // Submit();
+    Submit();
     setIsModalOpen(true);
   });
   //   useEffect(()=>{console.log(dob)},[dob]);
@@ -589,9 +589,6 @@ function Enroll() {
               id="submit"
               name="submit"
               value="Pay Now"
-              onClick={(e) => {
-                handlePayment(e);
-              }}
             />
           </div>
         </form>
