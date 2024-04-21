@@ -101,7 +101,7 @@ function Hero({setenroll,enroll}) {
   return (
 
     <div className="hero" id="home">
-       <div className="svg-arrow">
+       <div className="svg-arrow" onClick={()=>{ handleScrollTo('about');}}>
 <svg width="86" height="90" viewBox="0 0 86 90" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 0L43 31.6623L86 0L86 20.6596L43 52.3219L0 20.6596V0ZM0 37.6781L43 69.3404L86 37.6781L86 58.3377L43 90L0 58.3377L0 37.6781Z" fill="#FFD329"/>
 </svg>

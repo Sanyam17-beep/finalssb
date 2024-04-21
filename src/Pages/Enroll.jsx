@@ -4,10 +4,69 @@ import Footer from "../Components/Footer/Footer";
 import { useCallback, useEffect } from "react";
 import useRazorpay from "react-razorpay";
 import "../App.css";
+import Modal from "react-modal";
+import { IoClose } from "react-icons/io5";
+
+// Modal component
+const BackDetailsModal = ({ isOpen, closeModal }) => {
+  return (
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={closeModal}
+      contentLabel="Back Details Modal"
+      style={{
+        content: {
+          width: "90%",
+          maxWidth: "400px",
+          margin: "auto",
+        },
+      }}
+    >
+      <div className="modal-enroll">
+        <div className="upi">
+          <div
+            style={{
+              backgroundColor: "red",
+              height: "300px",
+              width: "300px",
+              margin: "auto",
+            }}
+          ></div>
+          <div className="upi-content">UPI Number: 9986345332</div>
+        </div>
+        <div className="centerLine">
+          <span>OR</span>
+        </div>
+        <div className="bank-detail">
+          <div className="bank-detail-title">FOR NEFT OR IMPS</div>
+          <div>
+          <div className="bank-detail-container">
+            <div className="bank-header">Bank Name:</div>
+            <div className="bank-content">State Bank Of India</div>
+          </div>
+          <div className="bank-detail-container">
+            <div className="bank-header">Account Number:</div>
+            <div className="bank-content">64207216523</div>
+          </div>
+          <div className="bank-detail-container">
+            <div className="bank-header">Branch:</div>
+            <div className="bank-content">Seegehalli, Bangalore</div>
+          </div>
+          <div className="bank-detail-container">
+            <div className="bank-header">Bank IFSC CODE:</div>
+            <div className="bank-content">SBIN0041030</div>
+          </div>
+          </div>
+        </div>
+        <button className="bank-close" onClick={closeModal}>CLOSE</button>
+      </div>
+    </Modal>
+  );
+};
 function Enroll() {
   const [Razorpay, isLoaded] = useRazorpay();
   const [loaded, setLoaded] = useState(false);
-  const [datr,newdat]=useState(null);
+  const [datr, newdat] = useState(null);
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [dob, setDob] = useState("");
@@ -22,116 +81,133 @@ function Enroll() {
   const [army, setArmy] = useState("");
   const [navy, setNavy] = useState("");
   const [force, setForce] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   function Submit() {
- 
-    
     const formDatab = new FormData();
-    formDatab.append('Name', Name);
-    formDatab.append('Email', Email);
-    formDatab.append('Dob', dob);
-    formDatab.append('Number', number);
-    formDatab.append('City', city);
-    formDatab.append('State', state);
-    formDatab.append('Slot', slot);
-    formDatab.append('Registration', registration);
-    formDatab.append('Module', module);
-    formDatab.append('Serving', serving);
-    formDatab.append('Chances', chances);
-    formDatab.append('Army',army);
-    formDatab.append('Navy', navy);
-    formDatab.append('Force', force);
-  
-  
+    formDatab.append("Name", Name);
+    formDatab.append("Email", Email);
+    formDatab.append("Dob", dob);
+    formDatab.append("Number", number);
+    formDatab.append("City", city);
+    formDatab.append("State", state);
+    formDatab.append("Slot", slot);
+    formDatab.append("Registration", registration);
+    formDatab.append("Module", module);
+    formDatab.append("Serving", serving);
+    formDatab.append("Chances", chances);
+    formDatab.append("Army", army);
+    formDatab.append("Navy", navy);
+    formDatab.append("Force", force);
+
     newdat(formDatab);
     fetch(
-        "https://script.google.com/macros/s/AKfycbxAMJLduPOn51iSSPw7IorYCJuceAPI4T3DdCtr1dcVDGr-5jWtey8aHBiIzuX-KAfj/exec?function=doPost",
-        {
-          method: "POST",
-          body: formDatab
-        }
-      )
-        .then((res) => res.json())
-        .then((data) => {
-         alert(data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      
-        setName("");
-        setArmy("");
-        setEmail("");
-        setChances("");
-        setCity("");
-        setDob("");
-        setForce("");
-        setModule("");
-        setNavy("");
-        setNumber("");
-        setRegistration("");
-        setServing("");
-        setSlot("");
-        setState("");
-}
+      "https://script.google.com/macros/s/AKfycbxAMJLduPOn51iSSPw7IorYCJuceAPI4T3DdCtr1dcVDGr-5jWtey8aHBiIzuX-KAfj/exec?function=doPost",
+      {
+        method: "POST",
+        body: formDatab,
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        alert(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-  const handlePayment = useCallback(
-    (e) => {
-      //   const order = await createOrder(params);
-      e.preventDefault();
-      const options = {
-        key: process.env.REACT_APP_API_KEY_RZP,
-        amount: "1000000",
-        currency: "INR",
-        name: "SSBBULLSEYE",
-        description: "Test Transaction",
-        image:
-          "http://localhost:3000/static/media/Primarygreen.0c9716bab372845eab9732aa01412125.svg",
+    setName("");
+    setArmy("");
+    setEmail("");
+    setChances("");
+    setCity("");
+    setDob("");
+    setForce("");
+    setModule("");
+    setNavy("");
+    setNumber("");
+    setRegistration("");
+    setServing("");
+    setSlot("");
+    setState("");
+  }
 
-        handler: (res) => {
-            if (res.razorpay_payment_id) {
-                // Payment successful, submit the form
-                setLoaded(true);
-              } else {
-                // Payment failed
-                console.error("Payment failed");
-              }
-        },
-        prefill: {
-          name: Name,
-          email: Email,
-          contact: number,
-        },
-        notes: {
-          address: "Razorpay Corporate Office",
-        },
-        theme: {
-          color: "#3399cc",
-        },
-      };
+  const handlePayment = useCallback((e) => {
+    //   const order = await createOrder(params);
+    e.preventDefault();
+    //   const options = {
+    //     key: process.env.REACT_APP_API_KEY_RZP,
+    //     amount: "1000000",
+    //     currency: "INR",
+    //     name: "SSBBULLSEYE",
+    //     description: "Test Transaction",
+    //     image:
+    //       "http://localhost:3000/static/media/Primarygreen.0c9716bab372845eab9732aa01412125.svg",
 
-      const rzpay = new Razorpay(options);
-   
-      rzpay.open();
-    },
-    [Razorpay]
-  );
-//   useEffect(()=>{console.log(dob)},[dob]);
-useEffect(()=>{
-if(loaded){
-    Submit();
-}
-},[loaded])
+    //     handler: (res) => {
+    //         if (res.razorpay_payment_id) {
+    //             // Payment successful, submit the form
+    //             setLoaded(true);
+    //           } else {
+    //             // Payment failed
+    //             console.error("Payment failed");
+    //           }
+    //     },
+    //     prefill: {
+    //       name: Name,
+    //       email: Email,
+    //       contact: number,
+    //     },
+    //     notes: {
+    //       address: "Razorpay Corporate Office",
+    //     },
+    //     theme: {
+    //       color: "#3399cc",
+    //     },
+    //   };
+
+    //   const rzpay = new Razorpay(options);
+
+    //   rzpay.open();
+    // },
+    // [Razorpay]
+    // Submit();
+    setIsModalOpen(true);
+  });
+  //   useEffect(()=>{console.log(dob)},[dob]);
+  // useEffect(()=>{
+  // if(loaded){
+
+  // }
+  // },[loaded])
   return (
     <>
-      
+      <BackDetailsModal isOpen={isModalOpen} closeModal={closeModal} />
       <div className="Enroll-page" id="enroll">
         <div className="Enroll-heading">Enroll now</div>
-        <form onSubmit={(e) => {handlePayment(e);}} className="form-container">
+        <form
+          onSubmit={(e) => {
+            handlePayment(e);
+          }}
+          className="form-container-en"
+        >
           <fieldset className="fieldset">
             <legend>Entry Applied For*</legend>
             <label htmlFor="Indian-army" className="form-group">
               Indian Army
-              <select id="ssbarmy" name="ssbarmy" class="form-control" value={army} onChange={(e)=>{setArmy(e.target.value);}} required>
+              <select
+                id="ssbarmy"
+                name="ssbarmy"
+                class="form-control"
+                value={army}
+                onChange={(e) => {
+                  setArmy(e.target.value);
+                }}
+                required
+              >
                 <option value="0"> Select Type of Entry </option>
                 <option value="NDA">NDA</option>
                 <option value="10+2 TES">10+2 TES</option>
@@ -158,7 +234,16 @@ if(loaded){
             </label>
             <label htmlFor="Indian-army" className="form-group">
               Indian Navy
-              <select id="ssbarmy" name="ssbarmy" class="form-control" value={navy} onChange={(e)=>{setNavy(e.target.value);}} required>
+              <select
+                id="ssbarmy"
+                name="ssbarmy"
+                class="form-control"
+                value={navy}
+                onChange={(e) => {
+                  setNavy(e.target.value);
+                }}
+                required
+              >
                 <option value="0"> Select Type of Entry </option>
                 <option value="NDA">NDA</option>
                 <option value="10+2 TES">10+2 TES</option>
@@ -183,9 +268,18 @@ if(loaded){
                 <option value="SSC TECH (WOMEN)">SSC TECH (WOMEN)</option>
               </select>
             </label>
-            <label htmlFor="Indian-army" className="form-group" >
+            <label htmlFor="Indian-army" className="form-group">
               Indian Air Force
-              <select id="ssbarmy" name="ssbarmy" class="form-control" value={force} onChange={(e)=>{setForce(e.target.value);}} required>
+              <select
+                id="ssbarmy"
+                name="ssbarmy"
+                class="form-control"
+                value={force}
+                onChange={(e) => {
+                  setForce(e.target.value);
+                }}
+                required
+              >
                 <option value="0"> Select Type of Entry </option>
                 <option value="NDA">NDA</option>
                 <option value="10+2 TES">10+2 TES</option>
@@ -216,7 +310,16 @@ if(loaded){
             <label>
               SSB Chances Availed <small>*</small>
             </label>
-            <select id="ssbchances" name="ssbchances" class="form-control" value={chances} onChange={(e)=>{setChances(e.target.value);}} required>
+            <select
+              id="ssbchances"
+              name="ssbchances"
+              class="form-control"
+              value={chances}
+              onChange={(e) => {
+                setChances(e.target.value);
+              }}
+              required
+            >
               <option value=""> Select Number of Chances </option>
               <option value="0"> 0 </option>
               <option value="1"> 1 </option>
@@ -240,7 +343,16 @@ if(loaded){
             <label>
               Presently serving in Army/Navy/Airforce<small>*</small>
             </label>
-            <select id="servicemen" name="servicemen" class="form-control" value={serving} onChange={(e)=>{setServing(e.target.value);}} required>
+            <select
+              id="servicemen"
+              name="servicemen"
+              class="form-control"
+              value={serving}
+              onChange={(e) => {
+                setServing(e.target.value);
+              }}
+              required
+            >
               <option value="">Select anyone</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
@@ -255,8 +367,10 @@ if(loaded){
               name="modules"
               id="modules"
               class="form-control"
-              
-              value={module} onChange={(e)=>{setModule(e.target.value);}}
+              value={module}
+              onChange={(e) => {
+                setModule(e.target.value);
+              }}
               required
             >
               <option value="">Select Module</option>
@@ -271,11 +385,16 @@ if(loaded){
               name="type"
               id="type"
               class="form-control"
-              value={registration} onChange={(e)=>{setRegistration(e.target.value);}}
+              value={registration}
+              onChange={(e) => {
+                setRegistration(e.target.value);
+              }}
               required
             >
               <option value="">Select Type</option>
-              <option value="Batch 1 Registration ( 2-6 Candidates )">Batch 1 Registration ( 2-6 Candidates )</option>
+              <option value="Batch 1 Registration ( 2-6 Candidates )">
+                Batch 1 Registration ( 2-6 Candidates )
+              </option>
               <option value="Batch 2 Registration ( 7-11 Candidates )">
                 Batch 2 Registration ( 7-11 Candidates )
               </option>
@@ -288,7 +407,16 @@ if(loaded){
             <label>
               Slot Training<small>*</small>
             </label>
-            <select id="stime" name="stime" class="form-control required" value={slot} onChange={(e)=>{setSlot(e.target.value);}} required>
+            <select
+              id="stime"
+              name="stime"
+              class="form-control required"
+              value={slot}
+              onChange={(e) => {
+                setSlot(e.target.value);
+              }}
+              required
+            >
               <option value=""> Select Slot Timing</option>
               <option value="07:00 AM - 09:00 AM">07:00 AM - 09:00 AM</option>
               <option value="02:00 PM - 04:00 PM">02:00 PM - 04:00 PM</option>
@@ -306,7 +434,10 @@ if(loaded){
               type="text"
               placeholder="Enter First Name &amp; Last Name"
               pattern="[A-Za-z]+( [A-Za-z]+)*"
-              value={Name} onChange={(e)=>{setName(e.target.value);}}
+              value={Name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
               required
             />
           </div>
@@ -321,7 +452,10 @@ if(loaded){
               type="text"
               placeholder="username@domainname.com"
               pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-            value={Email} onChange={(e)=>{setEmail(e.target.value);}}
+              value={Email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
               required
             />
           </div>
@@ -335,8 +469,11 @@ if(loaded){
               class="form-control"
               type="date"
               placeholder="Enter Date of birth [26-02-1987]"
-              value={dob} onChange={(e)=>{console.log(e.target.value);setDob(e.target.value);}}
-            //   pattern="^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$"
+              value={dob}
+              onChange={(e) => {
+                setDob(e.target.value);
+              }}
+              //   pattern="^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$"
               required
             />
           </div>
@@ -351,7 +488,10 @@ if(loaded){
               type="text"
               placeholder="Enter Whatsapp No [9000XXXXXX]"
               pattern="[0-9]{10}"
-              value={number} onChange={(e)=>{setNumber(e.target.value);}}
+              value={number}
+              onChange={(e) => {
+                setNumber(e.target.value);
+              }}
               required
             />
           </div>
@@ -365,7 +505,10 @@ if(loaded){
               class="form-control"
               type="text"
               placeholder="Village / City / District"
-              value={city} onChange={(e)=>{setCity(e.target.value);}}
+              value={city}
+              onChange={(e) => {
+                setCity(e.target.value);
+              }}
               required
             />
           </div>
@@ -373,7 +516,16 @@ if(loaded){
             <label>
               State / Union Territory<small>*</small>
             </label>
-            <select name="state" id="state" class="form-control" value={state} onChange={(e)=>{setState(e.target.value);}} required>
+            <select
+              name="state"
+              id="state"
+              class="form-control"
+              value={state}
+              onChange={(e) => {
+                setState(e.target.value);
+              }}
+              required
+            >
               <option value="">Select State</option>
               <option value="Andaman and Nicobar Islands">
                 Andaman and Nicobar Islands
@@ -437,11 +589,13 @@ if(loaded){
               id="submit"
               name="submit"
               value="Pay Now"
+              onClick={(e) => {
+                handlePayment(e);
+              }}
             />
           </div>
         </form>
       </div>
-      
     </>
   );
 }

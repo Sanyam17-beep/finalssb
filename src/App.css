@@ -32,7 +32,7 @@
   gap: 20px;
   align-items: center;
 }
-.form-container{
+.form-container-en{
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -58,6 +58,90 @@ legend{
 }
 #amount{
   background-color: #ccc;
+}
+.ReactModal__Overlay{
+  z-index: 1000 !important;
+}
+.upi{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.upi-content{
+  font-family: Yantramanav;
+  font-size: 20px;
+  font-weight: 600;
+
+}
+.ReactModal__Overlay{
+  background-color: rgb(81 77 77 / 75%) !important;
+}
+.ReactModal__Content{
+  height: fit-content;
+}
+.bank-detail-title{
+  font-size: 25px;
+  font-weight: 500;
+}
+.bank-detail-container{
+  display: flex;
+  gap:5px;
+}
+.bank-content{
+  font-size: 18px;
+}
+.bank-header{
+  font-size: 18px;
+  font-weight: 600;
+}
+.bank-detail{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.modal-enroll{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+.bank-close{
+  display: flex;
+justify-content: center;
+align-items: center;
+width: 120px;
+height: 45px;
+gap: 0px;
+border: 3px solid #2A5B1E;
+color: #2A5B1E;
+background-color: white;
+font-family: Hind Vadodara;
+font-size: 18px;
+font-weight: 400;
+line-height: 27.6px;
+text-align: center;
+}
+.centerLine{
+  width: 90%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.533);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.centerLine>span{
+  position:absolute;
+  font-size: 25px;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.533);
 }
 .form-group{
   display: flex;
@@ -103,6 +187,15 @@ legend{
     display: grid !important;
     margin-right: 30px !important;
   }
+  .ReactModal__Content{
+    inset: 0px !important;
+  }
+ .Enroll-heading{
+  font-size: 35px;
+ }
+ .Enroll-heading::after{
+  font-size: 12px;
+ }
   .menu{
     display: none !important;
   }
@@ -314,7 +407,7 @@ width: 100%;
   width: 90vw !important;
 }
 .svg-arrow{
-  bottom:40px !important;
+  bottom:20px !important;
 }
 .Hero-header-content {
   font-size: 40px !important;
