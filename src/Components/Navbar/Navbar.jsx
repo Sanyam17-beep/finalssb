@@ -194,7 +194,7 @@ function Navbar({setenroll,enroll}) {
           <div className="dropdown" ref={dropdownRef} style={{height:"160px"}}>
             <a href="https://164.100.158.23/how-to-join.htm" className="dropdown-item" target="_blank" rel="noopener noreferrer">Indian Army</a>
             <a href="https://www.joinindiannavy.gov.in/en/entry/entry/eligibilityform" className="dropdown-item" target="_blank" rel="noopener noreferrer">Indian Navy</a>
-            <a href="https://afcat.cdac.in/AFCAT/CareerAsPerQualification.html" className="dropdown-item" target="_blank" rel="noopener noreferrer">Indian Air force</a>
+            <a href="https://afcat.cdac.in/AFCAT/careerAsPerQualification" className="dropdown-item" target="_blank" rel="noopener noreferrer">Indian Air force</a>
           </div>
           )}
         </div>
@@ -295,7 +295,7 @@ function Navbar({setenroll,enroll}) {
         {/* <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",gap:"20px"}}> */}
         <a className="mobile-drop" style={ Active == "Eligibilty"?{paddingRight:"50px",}:{display:"none"}} href="https://164.100.158.23/how-to-join.htm" target="_blank" rel="noopener noreferrer">Indian Army</a>
             <a className="mobile-drop" style={ Active == "Eligibilty"?{paddingRight:"50px",}:{display:"none"}} href="https://www.joinindiannavy.gov.in/en/entry/entry/eligibilityform" target="_blank" rel="noopener noreferrer">Indian Navy</a>
-            <a className="mobile-drop" style={ Active == "Eligibilty"?{paddingRight:"50px",}:{display:"none"}} href="https://afcat.cdac.in/AFCAT/CareerAsPerQualification.html" target="_blank" rel="noopener noreferrer">Indian Air force</a>
+            <a className="mobile-drop" style={ Active == "Eligibilty"?{paddingRight:"50px",}:{display:"none"}} href="https://afcat.cdac.in/AFCAT/careerAsPerQualification" target="_blank" rel="noopener noreferrer">Indian Air force</a>
             {/* </div> */}
         <div className="link1"
           style={

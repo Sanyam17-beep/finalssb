@@ -6,6 +6,8 @@ import useRazorpay from "react-razorpay";
 import "../App.css";
 import Modal from "react-modal";
 import { IoClose } from "react-icons/io5";
+import toast, { Toaster } from 'react-hot-toast';
+import uppic from "../uppic.jpg"
 
 // Modal component
 const BackDetailsModal = ({ isOpen, closeModal }) => {
@@ -26,13 +28,14 @@ const BackDetailsModal = ({ isOpen, closeModal }) => {
         <div className="upi">
           <div
             style={{
-              backgroundColor: "red",
               height: "300px",
               width: "300px",
               margin: "auto",
             }}
-          ></div>
-          <div className="upi-content">UPI Number: 9986345332</div>
+          >
+            <img src={uppic} style={{width:"100%",height:"100%",objectFit:"contain"}} />
+          </div>
+          <div className="upi-content">UPI ID: raorennie7@oksbi</div>
         </div>
         <div className="centerLine">
           <span>OR</span>
@@ -85,6 +88,10 @@ function Enroll() {
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setTimeout(()=>{
+      toast.success('Successfully Registered!');
+    },500)
+  
   };
   function Submit() {
     const formDatab = new FormData();
@@ -174,8 +181,10 @@ function Enroll() {
     //   rzpay.open();
     // },
     // [Razorpay]
-    Submit();
+    // Submit();
     setIsModalOpen(true);
+   
+  
   });
   //   useEffect(()=>{console.log(dob)},[dob]);
   // useEffect(()=>{
@@ -185,6 +194,7 @@ function Enroll() {
   // },[loaded])
   return (
     <>
+    <Toaster></Toaster>
       <BackDetailsModal isOpen={isModalOpen} closeModal={closeModal} />
       <div className="Enroll-page" id="enroll">
         <div className="Enroll-heading">Enroll now</div>
