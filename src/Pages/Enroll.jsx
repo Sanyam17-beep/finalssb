@@ -181,7 +181,7 @@ function Enroll() {
     //   rzpay.open();
     // },
     // [Razorpay]
-    // Submit();
+    Submit();
     setIsModalOpen(true);
    
   
