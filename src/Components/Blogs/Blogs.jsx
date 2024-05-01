@@ -4,7 +4,10 @@ import im1 from "../../im3.jpg";
 import im4 from "../../im4.avif";
 import im5 from "../../im5.webp";
 import { Swiper, SwiperSlide } from "swiper/react";
-import imgbox from "../../Designer 4.png"
+import tempimg from "../../Designer 4.png"
+import tempimg1 from "../../Designer 1.png"
+import tempimg2 from "../../Designer 2.png"
+import tempimg3 from "../../Designer 3.png"
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -13,14 +16,19 @@ import "./style.css";
 
 // import required modules
 import { Autoplay, FreeMode, Pagination, Navigation } from "swiper/modules";
+const images = [tempimg, tempimg1, tempimg2, tempimg3];
 const Card=({data})=>{
-console.log(data);
+  let tem=data[5];
+  if(data[5]>=0&&data[5]<=4){
+    tem=images[data[5]];
+  }
+
   return (<>
   <div className="carousal-card" onClick={() => {
     window.open(data[4], '_blank');
   }}>
     <div className="card-img">
-      <img src={imgbox} alt="" />
+      <img src={tem} alt="" />
     </div>
     <div className="card-title">{data[2]}</div>
     <div className="card-date">{data[1]} | {data[0]}</div>

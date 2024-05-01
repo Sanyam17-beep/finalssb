@@ -23,34 +23,40 @@ export default function Testimonials() {
     {
       imgSrc: ARYA,
       name: "Aryaman Bhatt",
+      url:ary,
       content:
         "Aryaman Bhatt gets recommended by 2 AFSB Mysore, in his FIRST ATTEMPT. 160 candidates reported, 49 screened in and finally 6 candidates recommended, Aryaman being the ONLY FRESHER to be recommended.",
     },
     {
       imgSrc: sak,
       name: "Shaksham Kumar",
+      url:saks,
       content:
         "Shaksham Kumar clears  the SSB in his FIRST ATTEMPT. Out of 85 candidates who reported at Naval Selection Board ( NSB)Visakhapatnam, 5 finally got recommended. Shaksham being one of them.",
     },
     {
       imgSrc: alo,
       name: "Shlok",
+      url:shlok,
       content:
         "Enrolling in SSBBullseye's course was a game-changer for my AFCAT preparation. The course structure, coupled with expert guidance, honed my skills effectively. Clearing AFCAT was a testament to SSBBullseye's commitment to student success. I'm grateful for their support and highly recommend their courses to all AFCAT aspirants",
     },
     {
       imgSrc: profileimg,
+      url:null,
       name: "Lakha Tiwari",
       content:
         "The 12 day training and mentoring session I had under ssbbullseye was one of the most productive experiences I've had in my learning journey. The entire program gave me deep knowledge of how to conduct myself during the SSB interview along with a strategic approach to work on my areas for improvement.",
     },
     {
       imgSrc: profileimg,
+      url:null,
       name: "Kavya Suresh",
       content:
         "SSB Bullseye has not only prepared me well to face the SSB interview but also to face any future interviews and tests. These 12 days have helped me understand where I stand and areas where I should improve. It's been a real eye opener for me. More than anything it's the way Sir conducts the classes that makes it so informative and enjoyable."},
     {
       imgSrc: profileimg,
+      url:null,
       name: "Akhil S Kaimal",
       content:
         "It was a great learning experience from the SSB Bullseye.Sir your guidance and mentoring about the whole  process of ssb was amazing and really made me know as to where I am standing now and which are the areas of improvement that I  need to overcome.Sir your guidance and mentoring taught and  gave me the utmost confidence to face the SSB.",
@@ -58,6 +64,10 @@ export default function Testimonials() {
 
     // Add more slide data objects as needed
   ];
+  const handlePlayButtonClick = (videoUrl) => {
+    window.open(videoUrl, '_blank');
+  };
+
   return (
     <div className="testimonial-container">
       <div className="testimonial-header">What Our Students Say</div>
@@ -95,9 +105,11 @@ export default function Testimonials() {
             <SwiperSlide key={index}>
               <div className="tempbox">
                 <div className="img-container">
-                  <img src={slide.imgSrc} width={55} height={55} alt="" />
+                  <img src={slide.imgSrc} width={55} height={55} alt="" style={{borderRadius:"50%"}}/>
                   <div className="stars">
-                    <svg
+                
+                  {slide.url!=null&&<button className="watchButton" onClick={()=>handlePlayButtonClick(slide.url)}>Watch</button>}
+                    {/* <svg
                       width="143"
                       height="19"
                       viewBox="0 0 143 19"
@@ -124,7 +136,7 @@ export default function Testimonials() {
                         d="M133.5 0L135.633 6.56434H142.535L136.951 10.6213L139.084 17.1857L133.5 13.1287L127.916 17.1857L130.049 10.6213L124.465 6.56434H131.367L133.5 0Z"
                         fill="#FFCB11"
                       />
-                    </svg>
+                    </svg> */}
                   </div>
                 </div>
                 <div className="tempbox-name">{slide.name}</div>

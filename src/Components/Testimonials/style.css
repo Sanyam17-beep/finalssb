@@ -47,6 +47,15 @@ line-height: 28.01px;
 letter-spacing: 0.02em;
 
 }
+.watchButton{
+  border: none;
+  color: white;
+  background-color: #0275d8;
+  border-radius: 2rem;
+  font-family: Montserrat;
+ cursor: pointer;
+  padding: 10px;
+}
 .tempbox-content{
   overflow: hidden;
   display: -webkit-box;
@@ -63,7 +72,7 @@ text-align: left;
 
 }
 .stars{
-  top: 0px;
+  top: 8px;
   right: 0px;
   position: absolute;
 }

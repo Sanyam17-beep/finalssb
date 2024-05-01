@@ -9,6 +9,8 @@ import { IoClose } from "react-icons/io5";
 import toast, { Toaster } from 'react-hot-toast';
 import uppic from "../uppic.jpg"
 
+import emailjs from 'emailjs-com'
+
 // Modal component
 const BackDetailsModal = ({ isOpen, closeModal }) => {
   return (
@@ -35,7 +37,7 @@ const BackDetailsModal = ({ isOpen, closeModal }) => {
           >
             <img src={uppic} style={{width:"100%",height:"100%",objectFit:"contain"}} />
           </div>
-          <div className="upi-content">UPI ID: raorennie7@oksbi</div>
+          <div className="upi-content">UPI Number: 9986345332</div>
         </div>
         <div className="centerLine">
           <span>OR</span>
@@ -88,12 +90,42 @@ function Enroll() {
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setTimeout(()=>{
-      toast.success('Successfully Registered!');
-    },500)
+    toast.success('Successfully Registered!');
+    // setTimeout(()=>{
+    
+    //   console.log("hello");
+    // },500)
   
   };
+  const handleSubmit = () => {
+    // Prepare the template parameters
+    const templateParams = {
+      from_name: Name,
+      from_email: Email,
+      from_number: number,
+      from_city: city,
+      from_state: state,
+    };
+
+    // Your EmailJS service ID
+    const serviceID = 'service_ok8lzs2';
+    // Your EmailJS template ID
+    const templateID = 'template_qbrx589';
+    // Your EmailJS user ID
+
+    // Send email using EmailJS
+    emailjs.send(serviceID, templateID, templateParams,process.env.REACT_APP_API_KEY_EMAIL)
+      .then((response) => {
+        console.log('Email sent successfully:', response);
+        // setIsModalOpen(false); 
+      })
+      .catch((error) => {
+        console.error('Email sending failed:', error);
+      });
+  };
+
   function Submit() {
+    handleSubmit();
     const formDatab = new FormData();
     formDatab.append("Name", Name);
     formDatab.append("Email", Email);
@@ -119,9 +151,6 @@ function Enroll() {
       }
     )
       .then((res) => res.json())
-      .then((data) => {
-        alert(data);
-      })
       .catch((error) => {
         console.log(error);
       });
@@ -181,9 +210,10 @@ function Enroll() {
     //   rzpay.open();
     // },
     // [Razorpay]
+    
     Submit();
     setIsModalOpen(true);
-   
+    
   
   });
   //   useEffect(()=>{console.log(dob)},[dob]);
