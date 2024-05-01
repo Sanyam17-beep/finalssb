@@ -108,7 +108,7 @@ export default function Testimonials() {
                   <img src={slide.imgSrc} width={55} height={55} alt="" style={{borderRadius:"50%"}}/>
                   <div className="stars">
                 
-                  {slide.url!=null&&<button className="watchButton" onClick={()=>handlePlayButtonClick(slide.url)}>Watch</button>}
+                  {slide.url!=null&&<button className="watchButton" onClick={()=>handlePlayButtonClick(slide.url)}>Video</button>}
                     {/* <svg
                       width="143"
                       height="19"

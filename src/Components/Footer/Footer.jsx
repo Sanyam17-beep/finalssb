@@ -39,15 +39,15 @@ function Footer() {
                 <div className='logo-icon'><a href="https://www.linkedin.com/company/ssbbullseye/?viewAsMember=true" target="_blank" rel="noopener noreferrer"><FaLinkedinIn style={{    color: "darkolivegreen"}}/></a></div>
             </div> */}
          </div>
-         <div className='Contact-Us'>
+         {/* <div className='Contact-Us'>
             <div className='Contact-Us-header'>Policies</div>
             <div className='Contact-Us-content'>
             {/* We are always there to help you with your queries. Please feel free to contact us. */}
-            <div><a href={tnc} className='tnc' target="_blank" rel="noopener noreferrer">Terms and Conditions</a></div>
-            <div><a href={rnc}  className='tnc' target="_blank" rel="noopener noreferrer">Refunds / Cancellations Policy</a></div>
+            {/* <div><a href={tnc} className='tnc' target="_blank" rel="noopener noreferrer">Terms and Conditions</a></div>
+            <div><a href={rnc}  className='tnc' target="_blank" rel="noopener noreferrer">Refunds / Cancellations Policy</a></div> */}
             {/* <div> < MdEmail style={{height:"15px",width:"15px"}}/> support@ssbbullseye.com</div> */}
-            </div>
-         </div>
+            {/* </div>
+         </div>  */}
          <div className='Contact-Us'>
             <div className='Contact-Us-header'>Contact Us</div>
             <div className='Contact-Us-content'>
