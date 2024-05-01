@@ -65,7 +65,7 @@ function Blogs() {
     }, 5000);
 
     return () => {
-      clearInterval(intervalId); // Cleanup the interval when the component is unmounted
+      clearInterval(intervalId); 
     };
   }, [sheetId, apiKey, sheetName]);
 
