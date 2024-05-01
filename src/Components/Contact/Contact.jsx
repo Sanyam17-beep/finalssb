@@ -5,6 +5,7 @@ import { MdEmail } from "react-icons/md";
 import { IoLogoWhatsapp } from "react-icons/io";
 import emailjs from 'emailjs-com'
 import rect14 from "../../Rectangle 14.png"
+import toast, { Toaster } from 'react-hot-toast';
 function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -27,7 +28,7 @@ function Contact() {
     emailjs.sendForm('service_n9wwfu1', 'template_7i6ggdh', e.target, process.env.REACT_APP_API_KEY_EMAILJS)
       .then((result) => {
         console.log(result.text);
-        alert('Message sent successfully!');
+        toast.success('Message sent successfully!');
         setFormData({
           name: '',
           email: '',
@@ -38,7 +39,7 @@ function Contact() {
         });
       }) .catch((error) => {
         console.error(error.text);
-        alert('Failed to send message. Please try again later.');
+        toast.error('Failed to send message. Please try again later.');
       })
       .finally(() => {
         setIsSubmitting(false);
@@ -47,6 +48,7 @@ function Contact() {
 
   return (
     <>
+    <Toaster/>
     <div className="yellow-line"><svg width="328" height="350" viewBox="0 0 328 500" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M254.786 0H328L73.2143 500H0L254.786 0Z" fill="#FFD329"/>
 </svg>
